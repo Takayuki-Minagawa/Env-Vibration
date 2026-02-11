@@ -1,0 +1,168 @@
+:root {
+  --ink: #102227;
+  --muted: #4a5f65;
+  --surface: #f6fbfb;
+  --surface-strong: #e8f3f3;
+  --line: #bfd8d9;
+  --accent: #0f8cad;
+  --accent-deep: #005d72;
+  --warn: #b03921;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+  color: var(--ink);
+}
+
+.hero {
+  background: linear-gradient(120deg, #def3f5 0%, #f4ece4 100%);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 16px 30px rgba(11, 59, 66, 0.08);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.hero p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.panel {
+  margin-top: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 14px 24px rgba(11, 59, 66, 0.06);
+}
+
+.controls {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px 12px;
+}
+
+.grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.93rem;
+  color: var(--muted);
+}
+
+select,
+input[type='file'],
+button {
+  font: inherit;
+}
+
+select,
+input[type='file'] {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #fff;
+}
+
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+button {
+  border: 0;
+  border-radius: 9px;
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  background: var(--accent-deep);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.status-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.error {
+  color: var(--warn);
+  margin: 0;
+}
+
+.chart-area {
+  padding: 10px;
+}
+
+.chart-wrap {
+  position: relative;
+  width: 100%;
+  height: 380px;
+}
+
+.chart-area:last-of-type .chart-wrap {
+  height: 430px;
+}
+
+@media (max-width: 768px) {
+  .app-shell {
+    padding: 12px 10px 24px;
+  }
+
+  .hero h1 {
+    font-size: 1.4rem;
+  }
+}

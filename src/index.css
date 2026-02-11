@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  min-width: 340px;
+  min-height: 100vh;
+  font-family:
+    'BIZ UDPGothic',
+    'Noto Sans JP',
+    'Yu Gothic',
+    'Hiragino Kaku Gothic ProN',
+    sans-serif;
+  line-height: 1.45;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background:
+    radial-gradient(circle at top right, #d7edf0 0%, transparent 32%),
+    linear-gradient(180deg, #f7fdfa 0%, #eef8f8 100%);
+}
