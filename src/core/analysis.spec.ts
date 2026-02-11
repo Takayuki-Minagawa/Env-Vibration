@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { analyzeWave, evaluateRelativeError } from './analysis'
@@ -106,6 +106,14 @@ const candidates: Candidate[] = [
   },
 ]
 
+const requiredFixturePaths = [
+  candidates[0].inputPath,
+  path.join(vibrationRoot, 'result', 'ttt.csv'),
+  path.join(vibrationRoot, 'result', 'yyy.csv'),
+]
+const hasRequiredFixtures = requiredFixturePaths.every((fixturePath) => existsSync(fixturePath))
+const describeWithFixtures = hasRequiredFixtures ? describe : describe.skip
+
 const loadWave = (filePath: string): number[] =>
   parseWaveText(readFileSync(filePath, 'utf8'))
 
@@ -162,7 +170,7 @@ const score = (expected: ExpectedData, result: AnalysisResult) => {
   return { octaveError, fftError }
 }
 
-describe('analysis', () => {
+describeWithFixtures('analysis', () => {
   it('parses one-column wave files', () => {
     const wave = loadWave(candidates[0].inputPath)
     expect(wave.length).toBeGreaterThan(100)
